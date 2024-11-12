@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Game_Bot
+server:
+  port: 1111
+bot:
+  url: "http://localhost:${server.port}"
+  nickname: "BOT123"
