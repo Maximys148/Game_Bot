@@ -1,8 +1,10 @@
 package org.example.components;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.components.interfaces.BotAction;
 import org.example.dto.GameResponseDTO;
 import org.example.dto.RegistrationDTO;
+import org.example.enums.BodyType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -12,12 +14,17 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+
 @Component
 public class Bot implements ApplicationRunner, BotAction {
     @Value("${bot.url}")
     private String botURL;
     @Value("${bot.nickName}")
     private String botNickname;
+    private Integer[][] fields;
+    int positionX;
+    int positionY;
+    private ObjectMapper mapper;
     public RestTemplate restTemplate = new RestTemplate();
     public void run(ApplicationArguments args) throws Exception {
         int i;
@@ -26,8 +33,13 @@ public class Bot implements ApplicationRunner, BotAction {
             if(registration.getStatusCode().is2xxSuccessful()){
                 System.out.println(registration.getBody() == null ? "body is null" : registration.getBody().getMessage() == null ? "body.getMessage is null" : registration.getBody().getMessage());
                 ResponseEntity<GameResponseDTO> gameInfo = getGameInfo();
-                Integer[][] fields = gameInfo.getBody().getGame().getFields();
-                gameInfo.getBody().getGame().
+                System.out.println(gameInfo.getBody() == null ? "body is null" : gameInfo.getBody().getMessage() == null ? "body.getMessage is null" : gameInfo.getBody().getMessage());
+                if(gameInfo.getBody().getBodyType().equals(BodyType.GAME)){
+                    Game game = mapper.readValue(gameInfo.getBody().getStringJSON().toString(), Game.class);
+                    this.fields = game.getFields();
+                    this.positionX = game.getPlayer(botNickname).getPositionX();
+                    this.positionY = game.getPlayer(botNickname).getPositionY();
+                }
                 break;
             }
         }
@@ -35,7 +47,6 @@ public class Bot implements ApplicationRunner, BotAction {
             System.out.println("Бот не смог зарегистрироваться");
             return;
         }
-
     }
 
     @Override

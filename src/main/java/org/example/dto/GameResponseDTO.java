@@ -1,54 +1,44 @@
 package org.example.dto;
 
-import org.example.components.Game;
+import org.example.enums.BodyType;
+import org.example.enums.ResponseStatus;
 
 import java.util.List;
 
 public class GameResponseDTO {
-    private String status; // Используем Enum для статуса ответа
+    private ResponseStatus status; // Используем Enum для статуса ответа
     private String message;
-    private Object data; // Можно заменить Object на конкретный тип данных, если необходимо
-    private Game game;
+    private String stringJSON; // Можно заменить Object на конкретный тип данных, если необходимо
+    private BodyType bodyType;
     private List<String> errors; // Список ошибок, если они есть
 
     // Конструкторы
-    public GameResponseDTO(String status, String message, Object data) {
+    public GameResponseDTO(ResponseStatus status, String message, String stringJSON, BodyType bodyType) {
         this.status = status;
         this.message = message;
-        this.data = data;
+        this.stringJSON = stringJSON;
+        this.bodyType = bodyType;
     }
-    public GameResponseDTO(String status, String message) {
+
+    public GameResponseDTO(ResponseStatus status, String message) {
         this.status = status;
         this.message = message;
     }
 
-    public GameResponseDTO(String status, String message, List<String> errors) {
-        this.status = status;
-        this.message = message;
-        this.errors = errors;
+    public BodyType getBodyType() {
+        return bodyType;
     }
 
-    public GameResponseDTO(String status, String message, Game game) {
-        this.status = status;
-        this.message = message;
-        this.data = null;
-        this.game = game;
-    }
-
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     // Геттеры и сеттеры
-    public String getStatus() {
+    public ResponseStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(ResponseStatus status) {
         this.status = status;
     }
 
@@ -60,12 +50,12 @@ public class GameResponseDTO {
         this.message = message;
     }
 
-    public Object getData() {
-        return data;
+    public Object getStringJSON() {
+        return stringJSON;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setStringJSON(String stringJSON) {
+        this.stringJSON = stringJSON;
     }
 
     public List<String> getErrors() {
