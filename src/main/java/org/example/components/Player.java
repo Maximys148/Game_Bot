@@ -11,6 +11,18 @@ public class Player {
     private int positionY;
     private Integer countFood = 0;
 
+    public Player() {
+    }
+
+    public Player(String id, String nickName, Integer indexMove, int positionX, int positionY, Integer countFood) {
+        this.id = id;
+        this.nickName = nickName;
+        this.indexMove = indexMove;
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.countFood = countFood;
+    }
+
     public Player(String nickName) {
         this.nickName = nickName;
     }

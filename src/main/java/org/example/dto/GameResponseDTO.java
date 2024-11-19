@@ -25,6 +25,9 @@ public class GameResponseDTO {
         this.message = message;
     }
 
+    public GameResponseDTO() {
+    }
+
     public BodyType getBodyType() {
         return bodyType;
     }
@@ -50,7 +53,7 @@ public class GameResponseDTO {
         this.message = message;
     }
 
-    public Object getStringJSON() {
+    public String getStringJSON() {
         return stringJSON;
     }
 

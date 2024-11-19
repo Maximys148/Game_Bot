@@ -1,6 +1,5 @@
 package org.example.thread;
 
-import org.example.components.Map;
 import org.example.components.Player;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -13,7 +12,7 @@ public class BotThread extends Thread{
     private Player player;
     @Value("${bot.url-move}")
     private String botURL;
-    private Map map;
+    //private Map map;
     public RestTemplate restTemplate = new RestTemplate();
     public BotThread(String nickName) {
         this.player = new Player(nickName);

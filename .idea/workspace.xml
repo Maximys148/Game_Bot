@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Создание бота">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/enums/ResponseStatus.java" afterDir="false" />
+    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Добавил обработку json">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/botMove/AStarPathfinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/botMove/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/MoveDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/interfaces/BotAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/interfaces/BotAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/GameResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/GameResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/RegistrationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/RegistrationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/thread/BotThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thread/BotThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +46,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GameApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.game_bot [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.game_bot [install].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GameApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Maven.game_bot [clean].executor": "Run",
+    "Maven.game_bot [install].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.enums" />
@@ -115,11 +125,33 @@
       <option name="project" value="LOCAL" />
       <updated>1731414357012</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Добавил обработку json">
+      <option name="closed" value="true" />
+      <created>1731421231722</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731421231722</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание бота" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создание бота" />
+    <MESSAGE value="Добавил обработку json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил обработку json" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.example.dto.GameResponseDTO" memberName="stringJSON" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="mapper" language="JAVA" />
+        <watch expression="y" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

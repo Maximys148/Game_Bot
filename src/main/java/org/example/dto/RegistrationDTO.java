@@ -7,6 +7,9 @@ public class RegistrationDTO {
         this.nickName = nickName;
     }
 
+    public RegistrationDTO() {
+    }
+
     public String getNickName() {
         return nickName;
     }

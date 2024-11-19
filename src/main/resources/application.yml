@@ -5,4 +5,4 @@ server:
   port: 1111
 bot:
   url: "http://localhost:${server.port}"
-  nickname: "BOT123"
+  nickName: "BOT123"
