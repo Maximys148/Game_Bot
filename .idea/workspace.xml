@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Добавил обработку json">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/botMove/AStarPathfinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/botMove/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/MoveDTO.java" afterDir="false" />
+    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/GameMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/interfaces/BotAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/interfaces/BotAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/GameResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/GameResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/RegistrationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/RegistrationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/thread/BotThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/thread/BotThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,15 +121,33 @@
       <option name="project" value="LOCAL" />
       <updated>1731421231722</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры">
+      <option name="closed" value="true" />
+      <created>1732023100572</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732023100572</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание бота" />
     <MESSAGE value="Добавил обработку json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил обработку json" />
+    <MESSAGE value="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/components/Bot.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.example.dto.GameResponseDTO" memberName="stringJSON" />

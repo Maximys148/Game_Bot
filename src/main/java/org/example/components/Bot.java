@@ -47,9 +47,12 @@ public class Bot implements ApplicationRunner, BotAction {
     public void run(ApplicationArguments args) throws Exception {
         if(validateRegistration()){
             if(validateStartGame()){
-                if(validateMove()){
-                    logger.info("Игра окончена");
-                }else return;
+                while (true){
+                    if(!validateMove()){
+                        logger.info("Игра окончена");
+                        return;
+                    }
+                }
             }else return;
         }else return;
     }
@@ -63,7 +66,7 @@ public class Bot implements ApplicationRunner, BotAction {
     @Override
     public ResponseEntity<GameResponseDTO> move(int x, int y){
         UriComponentsBuilder uriRegistration = UriComponentsBuilder.fromHttpUrl(botURL)
-                .path("/game/getGameInfo");
+                .path("/game/move");
         MoveDTO moveDTO = new MoveDTO(botNickname, x, y);
         RequestEntity<MoveDTO> request = RequestEntity.post(uriRegistration.build().toUri()).body(moveDTO);
         ResponseEntity<GameResponseDTO> responseDTO = restTemplate.exchange(request, GameResponseDTO.class);
@@ -143,7 +146,7 @@ public class Bot implements ApplicationRunner, BotAction {
                     logger.info("Подключился к игре");
                     getGameInfo();
                     logger.info("Получил информацию об игре");
-                    break;
+                    return true;
                 }
             }catch (HttpClientErrorException e){
                 if (e.getStatusCode().isSameCodeAs(HttpStatusCode.valueOf(400))){
@@ -153,20 +156,30 @@ public class Bot implements ApplicationRunner, BotAction {
                 Thread.sleep(2000);
             }
         }
-        return true;
     }
     private boolean validateMove() throws InterruptedException {
         // Бот начинает двигаться
-        Position position1 = gameMap.getFoodPosition().get(0);
-        while (true){
-            List<Position> pathTo = findPathTo(position1);
+        for (Position foodPosition: gameMap.getFoodPosition()){
+            List<Position> pathTo = findPathTo(foodPosition);
             if(pathTo == null){
                 logger.info("Я не могу найти путь");
                 Thread.sleep(5000);
             }else {
-                move(pathTo.getX(), pathTo.getY());
-                Thread.sleep(1000);
+                pathTo.remove(0);
+                for (Position positionToMove: pathTo) {
+                    try {
+                        ResponseEntity<GameResponseDTO> move = move(positionToMove.getX(), positionToMove.getY());
+                        logger.info("Сервер пишет - " + Objects.requireNonNull(move.getBody()).getMessage());
+                        Thread.sleep(2000);
+                    }catch (HttpClientErrorException e){
+                        if(e.getStatusCode().isSameCodeAs(HttpStatusCode.valueOf(400))){
+                            logger.info("Сервер пишет - " + Objects.requireNonNull(e.getResponseBodyAs(GameResponseDTO.class)).getMessage());
+                            Thread.sleep(2000);
+                        }
+                    }
+                }
             }
         }
+        return false;
     }
 }
