@@ -4,5 +4,5 @@ spring:
 server:
   port: 1111
 bot:
-  url: "http://localhost:${server.port}"
-  nickName: "BOT123"
+  url: "http://localhost:8881"
+  nickName: "${botNickName:BOT123}"

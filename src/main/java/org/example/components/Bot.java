@@ -93,6 +93,7 @@ public class Bot implements ApplicationRunner, BotAction {
     public ResponseEntity<GameResponseDTO> registration() throws HttpClientErrorException{
         UriComponentsBuilder uriRegistration = UriComponentsBuilder.fromHttpUrl(botURL)
                 .path("/game/registration");
+        logger.info(uriRegistration.toUriString());
         RegistrationDTO registrationDTO = new RegistrationDTO(botNickname);
         RequestEntity<RegistrationDTO> request = RequestEntity.post(uriRegistration.build().toUri()).body(registrationDTO);
         return restTemplate.exchange(request, GameResponseDTO.class);
@@ -127,7 +128,7 @@ public class Bot implements ApplicationRunner, BotAction {
                 }
                 Thread.sleep(2000);
             }catch (ResourceAccessException e){
-                logger.info("Server not found");
+                logger.error("Server not found");
                 Thread.sleep(2000);
             }
         }

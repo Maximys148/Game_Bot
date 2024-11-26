@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры">
+    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Нормализовал ходьбу и разгрузил основной метод run, создавая новые методы в которых лежат циклы, осталось сделать концовку для игры">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +42,10 @@
   "keyToString": {
     "Application.GameApplication.executor": "Run",
     "Application.Main.executor": "Run",
+    "Docker.docker-compose.yml.game_bot: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Docker.main: Compose Deployment.executor": "Run",
+    "Docker.src/Dockerfile.executor": "Run",
     "Maven.game_bot [clean].executor": "Run",
     "Maven.game_bot [install].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -48,6 +56,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\JAVA\SpringBootHello\Game_Bot" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.example.enums" />
       <recent name="org.example.dto" />
@@ -68,23 +79,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="game_bot" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.thread.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.game_bot: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="game_bot" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="main: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="src/main/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="src/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="sourceFilePath" value="src/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GameApplication" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.game_bot: Compose Deployment" />
+        <item itemvalue="Docker.main: Compose Deployment" />
+        <item itemvalue="Docker.src/Dockerfile" />
       </list>
     </recent_temporary>
   </component>
@@ -129,14 +178,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732023100572</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Нормализовал ходьбу и разгрузил основной метод run, создавая новые методы в которых лежат циклы, осталось сделать концовку для игры">
+      <option name="closed" value="true" />
+      <created>1732097309681</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732097309681</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание бота" />
     <MESSAGE value="Добавил обработку json" />
     <MESSAGE value="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры" />
+    <MESSAGE value="Нормализовал ходьбу и разгрузил основной метод run, создавая новые методы в которых лежат циклы, осталось сделать концовку для игры" />
+    <option name="LAST_COMMIT_MESSAGE" value="Нормализовал ходьбу и разгрузил основной метод run, создавая новые методы в которых лежат циклы, осталось сделать концовку для игры" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
