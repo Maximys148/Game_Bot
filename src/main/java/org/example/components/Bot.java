@@ -44,7 +44,15 @@ public class Bot implements ApplicationRunner, BotAction {
                    в зависимости от которых он будет выходить из цикла(завершать работу бота) или переходить на новый этап.
                  - Поправить логику бота чтобы он вызывал findPathTo один раз(он возвращает путь, состоящий из Positions) и уже этот путь будет разбирать новый метод.
     */
+
     public void run(ApplicationArguments args) throws Exception {
+        // Отлавливает выход бота и отправляет на сервер уведомление о выходе
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            public void run() {
+                logger.info("Я закончил");
+                disconnect();
+            }
+        });
         if(validateRegistration()){
             if(validateStartGame()){
                 while (true){
@@ -106,6 +114,13 @@ public class Bot implements ApplicationRunner, BotAction {
         RegistrationDTO registrationDTO = new RegistrationDTO(botNickname);
         RequestEntity<RegistrationDTO> request = RequestEntity.post(uriRegistration.build().toUri()).body(registrationDTO);
         return restTemplate.exchange(request, GameResponseDTO.class);
+    }
+    public ResponseEntity<RegistrationDTO> disconnect() {
+        UriComponentsBuilder uriRegistration = UriComponentsBuilder.fromHttpUrl(botURL)
+                .path("/game/disconnect");
+        RegistrationDTO registrationDTO = new RegistrationDTO(botNickname);
+        RequestEntity<RegistrationDTO> request = RequestEntity.post(uriRegistration.build().toUri()).body(registrationDTO);
+        return restTemplate.exchange(request, RegistrationDTO.class);
     }
 
     @Override
