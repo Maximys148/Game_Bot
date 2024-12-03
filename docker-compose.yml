@@ -6,8 +6,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        botNickName: "BOT"
+    environment:
+      botNickName: "BOT"
+      server-url: "http://game:8881"
     container_name: "BOT"
     hostname: BOT
 
@@ -37,5 +38,6 @@ services:
 networks:
   default:
     driver: bridge
+
 
 

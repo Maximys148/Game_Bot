@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Нестабильная ветка с нерабочим докером">
+    <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Попытка разобраться с сетью докера;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
@@ -25,15 +25,15 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="notstable" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
@@ -55,6 +55,10 @@
     "Docker.src/Dockerfile.executor": "Run",
     "Maven.game_bot [clean].executor": "Run",
     "Maven.game_bot [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.GameApplication.executor": "Debug",
@@ -64,7 +68,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -178,6 +184,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731066071291</updated>
+      <workItem from="1733212127460" duration="420000" />
     </task>
     <task id="LOCAL-00001" summary="Создание бота">
       <option name="closed" value="true" />
@@ -219,11 +226,30 @@
       <option name="project" value="LOCAL" />
       <updated>1732643345356</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Попытка разобраться с сетью докера;">
+      <option name="closed" value="true" />
+      <created>1733159087865</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733159087866</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создание бота" />
@@ -231,7 +257,8 @@
     <MESSAGE value="Сократил основной метод run, разобрав циклы по методам, осталось подкоректировать метод Move и добавить концовку игры" />
     <MESSAGE value="Нормализовал ходьбу и разгрузил основной метод run, создавая новые методы в которых лежат циклы, осталось сделать концовку для игры" />
     <MESSAGE value="Нестабильная ветка с нерабочим докером" />
-    <option name="LAST_COMMIT_MESSAGE" value="Нестабильная ветка с нерабочим докером" />
+    <MESSAGE value="Попытка разобраться с сетью докера;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Попытка разобраться с сетью докера;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
