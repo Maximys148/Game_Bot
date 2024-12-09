@@ -7,6 +7,8 @@
     <list default="true" id="be80919b-fa71-4c18-aeb7-e4f4ee6ef2d1" name="Changes" comment="Попытка разобраться с сетью докера;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/botMove/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/botMove/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/components/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,9 +48,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GameApplication.executor": "Debug",
+    "Application.GameApplication.executor": "Run",
     "Application.Main.executor": "Run",
     "Docker.docker-compose.yml.game: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.game_bot1: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.game_bot: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "Docker.main: Compose Deployment.executor": "Run",
@@ -62,7 +65,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.GameApplication.executor": "Debug",
-    "git-widget-placeholder": "notstable",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,7 +86,7 @@
       <recent name="org.example.components" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.game_bot: Compose Deployment">
+  <component name="RunManager" selected="Application.GameApplication">
     <configuration name="GameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.GameApplication" />
       <module name="game_bot" />
@@ -137,6 +140,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.game_bot1: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="game_bot1" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml.game_bot: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -150,29 +166,21 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="main: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="src/main/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GameApplication" />
+        <item itemvalue="Docker.docker-compose.yml.game_bot1: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.game_bot: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.game: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Application.GameApplication" />
-        <item itemvalue="Docker.main: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="jdk-11.0.22-corretto-11.0.22-4caba194b151-868cef46" />
+        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
       </set>
     </attachedChunks>
   </component>
@@ -261,15 +269,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Попытка разобраться с сетью докера;" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/components/Bot.java</url>
-          <line>118</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.example.dto.GameResponseDTO" memberName="stringJSON" />

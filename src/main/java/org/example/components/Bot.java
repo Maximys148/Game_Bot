@@ -49,7 +49,7 @@ public class Bot implements ApplicationRunner, BotAction {
         // Отлавливает выход бота и отправляет на сервер уведомление о выходе
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
-                logger.info("Я закончил");
+                logger.info(botNickname + " закончил");
                 disconnect();
             }
         });
@@ -115,12 +115,21 @@ public class Bot implements ApplicationRunner, BotAction {
         RequestEntity<RegistrationDTO> request = RequestEntity.post(uriRegistration.build().toUri()).body(registrationDTO);
         return restTemplate.exchange(request, GameResponseDTO.class);
     }
-    public ResponseEntity<RegistrationDTO> disconnect() {
-        UriComponentsBuilder uriRegistration = UriComponentsBuilder.fromHttpUrl(botURL)
-                .path("/game/disconnect");
-        RegistrationDTO registrationDTO = new RegistrationDTO(botNickname);
-        RequestEntity<RegistrationDTO> request = RequestEntity.post(uriRegistration.build().toUri()).body(registrationDTO);
-        return restTemplate.exchange(request, RegistrationDTO.class);
+    public void disconnect() {
+        try {
+            UriComponentsBuilder uriRegistration = UriComponentsBuilder.fromHttpUrl(botURL)
+                    .path("/game/disconnect");
+            RegistrationDTO registrationDTO = new RegistrationDTO(botNickname);
+            RequestEntity<RegistrationDTO> request = RequestEntity.post(uriRegistration.build().toUri()).body(registrationDTO);
+            restTemplate.exchange(request, RegistrationDTO.class);
+        } catch (ResourceAccessException e) {
+            System.err.println("Не удалось подключиться к серверу: " + e.getMessage());
+            // Здесь вы можете выполнить дополнительные действия, например, повторить попытку подключения
+        } catch (Exception e) {
+            System.err.println("Произошла ошибка: " + e.getMessage());
+            // Обработка других исключений, если это необходимо
+        }
+
     }
 
     @Override
@@ -131,6 +140,7 @@ public class Bot implements ApplicationRunner, BotAction {
     private boolean validateRegistration() throws InterruptedException {
         for (MAX_RETRIES = 0; MAX_RETRIES < 3; MAX_RETRIES++) {
             try {
+                logger.info("пытаюсь подключиться {}", botNickname);
                 // Бот пытается зарегистрироваться
                 ResponseEntity<GameResponseDTO> registration = registration();
                 if(registration.getStatusCode().is2xxSuccessful()){
@@ -181,12 +191,15 @@ public class Bot implements ApplicationRunner, BotAction {
                 logger.info("Я не могу найти путь");
                 Thread.sleep(5000);
             }else {
-                pathTo.remove(0);
+                Thread.sleep(1000);
+                pathTo.remove(0); // Удаляем первый элемент
                 for (Position positionToMove: pathTo) {
                     try {
                         ResponseEntity<GameResponseDTO> move = move(positionToMove.getX(), positionToMove.getY());
                         logger.info("Сервер пишет - " + Objects.requireNonNull(move.getBody()).getMessage());
-                        Thread.sleep(2000);
+                        position.setX(positionToMove.getX());
+                        position.setY(positionToMove.getY());
+                        Thread.sleep(500);
                     }catch (HttpClientErrorException e){
                         if(e.getStatusCode().isSameCodeAs(HttpStatusCode.valueOf(400))){
                             logger.info("Сервер пишет - " + Objects.requireNonNull(e.getResponseBodyAs(GameResponseDTO.class)).getMessage());

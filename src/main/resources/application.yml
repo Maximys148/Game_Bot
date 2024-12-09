@@ -2,5 +2,5 @@ spring:
   application:
     name: Game_Bot
 bot:
-  url: "${server-url: http://localhost:8881}"
+  url: "${server-url:http://localhost:8881}"
   nickName: "${botNickName:BOT123}"

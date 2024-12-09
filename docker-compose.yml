@@ -12,9 +12,19 @@ services:
     container_name: "BOT"
     hostname: BOT
 
+  game_bot1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      botNickName: "BOT1"
+      server-url: "http://game:8881"
+    container_name: "BOT1"
+    hostname: BOT1
+
   game:
     build:
-      context: C:\HroNouS\Java Project\Game
+      context: C:\JAVA\SpringBootHello\Game
       dockerfile: Dockerfile
     hostname: GAME
     environment:
@@ -34,10 +44,5 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
-
-networks:
-  default:
-    driver: bridge
-
 
 
